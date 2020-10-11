@@ -12,6 +12,9 @@ export const TodoListPage: React.FC = () => {
     dispatch({ type: 'ADD_TODO', payload: { text } });
     setText(initialText);
   };
+  const removeAllHandler = () => {
+    dispatch({ type: 'REMOVE_ALL' });
+  };
 
   return (
     <div>
@@ -19,6 +22,9 @@ export const TodoListPage: React.FC = () => {
         <span>new: </span>
         <input type="text" onChange={e => setText(e.target.value)} value={text} />
         <button onClick={() => addTodoHandler(text)}>add</button>
+      </p>
+      <p>
+        <button onClick={removeAllHandler}>remove all</button>
       </p>
       <TodoList todos={todos} />
     </div>
