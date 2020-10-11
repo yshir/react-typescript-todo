@@ -2,13 +2,13 @@ import React from 'react';
 import { v4 as uuid } from 'uuid';
 import { TodoType } from '../types/Todo';
 
-type Action =
+export type TodoAction =
   | { type: 'ADD_TODO'; payload: { text: string } }
   | { type: 'UPDATE_TODO'; payload: { id: string; text: string } }
   | { type: 'REMOVE_TODO'; payload: { id: string } }
   | { type: 'REMOVE_ALL' };
 
-export const reducer: React.Reducer<TodoType[], Action> = (todos: TodoType[] = [], action: Action) => {
+export const todoReducer: React.Reducer<TodoType[], TodoAction> = (todos: TodoType[], action: TodoAction) => {
   switch (action.type) {
     case 'ADD_TODO':
       const todo: TodoType = {

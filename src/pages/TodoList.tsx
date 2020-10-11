@@ -1,16 +1,14 @@
-import React, { useReducer, useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { TodoList } from '../components/TodoList';
-import { reducer } from '../reducers/todo';
+import { TodoContext } from '../contexts/TodoContext';
 
 export const TodoListPage: React.FC = () => {
   const initialText = '';
   const [text, setText] = useState(initialText);
 
-  const [todos, dispatch] = useReducer(reducer, []);
+  const { todos, dispatch } = useContext(TodoContext);
   const addTodoHandler = (text: string) => {
-    if (!text) {
-      return;
-    }
+    if (text === '') return;
     dispatch({ type: 'ADD_TODO', payload: { text } });
     setText(initialText);
   };
