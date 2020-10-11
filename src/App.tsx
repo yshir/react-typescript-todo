@@ -1,10 +1,10 @@
 import React from 'react';
+import { TodoListPage } from './pages/TodoList';
 
 export const App: React.FC = () => {
   return (
     <div>
-      <p>Hello, world.</p>
-      <p>env: {process.env.APP_ENV}</p>
+      <TodoListPage />
     </div>
   );
 };
